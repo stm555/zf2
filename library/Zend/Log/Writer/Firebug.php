@@ -47,20 +47,20 @@ class Firebug extends AbstractWriter
      * Maps logging priorities to logging display styles
      * @var array
      */
-    protected $_priorityStyles = array(Log\Logger::EMERG  => FirePhp\FirePhp::ERROR,
-                                       Log\Logger::ALERT  => FirePhp\FirePhp::ERROR,
-                                       Log\Logger::CRIT   => FirePhp\FirePhp::ERROR,
-                                       Log\Logger::ERR    => FirePhp\FirePhp::ERROR,
-                                       Log\Logger::WARN   => FirePhp\FirePhp::WARN,
-                                       Log\Logger::NOTICE => FirePhp\FirePhp::INFO,
-                                       Log\Logger::INFO   => FirePhp\FirePhp::INFO,
-                                       Log\Logger::DEBUG  => FirePhp\FirePhp::LOG);
+    protected $_priorityStyles = array(Log\Logger::EMERG  => FirePhp::ERROR,
+                                       Log\Logger::ALERT  => FirePhp::ERROR,
+                                       Log\Logger::CRIT   => FirePhp::ERROR,
+                                       Log\Logger::ERR    => FirePhp::ERROR,
+                                       Log\Logger::WARN   => FirePhp::WARN,
+                                       Log\Logger::NOTICE => FirePhp::INFO,
+                                       Log\Logger::INFO   => FirePhp::INFO,
+                                       Log\Logger::DEBUG  => FirePhp::LOG);
 
     /**
      * The default logging style for un-mapped priorities
      * @var string
      */
-    protected $_defaultPriorityStyle = FirePhp\FirePhp::LOG;
+    protected $_defaultPriorityStyle = FirePhp::LOG;
 
     /**
      * Flag indicating whether the log writer is enabled
@@ -191,7 +191,7 @@ class Firebug extends AbstractWriter
 
         $label = isset($event['firebugLabel'])?$event['firebugLabel']:null;
 
-        FirePhp\FirePhp::getInstance()->send($message,
+        FirePhp::getInstance()->send($message,
                                                           $label,
                                                           $type,
                                                           array('traceOffset'=>6));
